@@ -1,6 +1,8 @@
 name: First Workflow
 
-on: [push]
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   job1:
@@ -10,11 +12,12 @@ jobs:
         run: echo "Step 1 complete!"
       - name: Step 2
         run: echo "Step 2 complete!"
+
   job2:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Cowsays Action
-      uses: peter-evans/cowsay@v1
-      with:
-        text: "Ready for prod–ship it!"
-        color: magenta
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cowsays Action
+        uses: peter-evans/cowsay@v1
+        with:
+          text: "Ready for prod–ship it!"
+          color: magenta
